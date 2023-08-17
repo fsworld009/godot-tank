@@ -9,7 +9,7 @@ collision_mask = 7
 script = ExtResource("1_cogk3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+polygon = PackedVector2Array(-3, -3, 3, -3, 3, 3, -3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ftfsq")
