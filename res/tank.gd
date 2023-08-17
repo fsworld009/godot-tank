@@ -59,13 +59,13 @@ func shot(shot_type: BulletScript.BulletSource):
 		# bullet.position.y = position.y
 		match direction:
 			Vector2.UP:
-				bullet.position.y -= 24
+				bullet.position.y -= 17
 			Vector2.RIGHT:
-				bullet.position.x += 24
+				bullet.position.x += 17
 			Vector2.DOWN:
-				bullet.position.y += 24
+				bullet.position.y += 17
 			Vector2.LEFT:
-				bullet.position.x -= 24
+				bullet.position.x -= 17
 		bullet.connect("disappear", _on_bullet_disappear)
 		bullet.z_index = 1
 		root.add_child(bullet)

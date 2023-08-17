@@ -16,7 +16,7 @@ func init_bullet(direction: Vector2, source: BulletSource):
 
 func _physics_process(delta):
 	var pos = Vector2()
-	var speed = 100
+	var speed = 150
 	var collision = move_and_collide(direction * speed * delta)
 	
 	if collision:

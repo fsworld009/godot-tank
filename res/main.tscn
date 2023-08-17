@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://4g2enh1mfur1"]
+[gd_scene load_steps=5 format=3 uid="uid://4g2enh1mfur1"]
 
 [ext_resource type="TileSet" uid="uid://hriauv5vg4tj" path="res://res/tileset.tres" id="1_jrvyx"]
-[ext_resource type="Script" path="res://res/game.gd" id="1_x7fsu"]
-[ext_resource type="PackedScene" uid="uid://cr1q3bgpyccmi" path="res://res/player1.tscn" id="3_18dr2"]
 [ext_resource type="PackedScene" uid="uid://ctxqhuwwbh56" path="res://res/walls.tscn" id="3_yuc5i"]
-[ext_resource type="PackedScene" uid="uid://784fsqh8ki5s" path="res://res/EnemyGenerator.tscn" id="5_auxh2"]
+[ext_resource type="PackedScene" uid="uid://dux05k6gtf2a5" path="res://res/enemy_generator.tscn" id="5_auxh2"]
+[ext_resource type="PackedScene" uid="uid://dhalsqhi7t7of" path="res://res/player_generator.tscn" id="5_c63iw"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_x7fsu")
 
 [node name="TileMap_Upper" type="TileMap" parent="."]
 z_as_relative = false
@@ -154,21 +152,24 @@ position = Vector2(416, 32)
 [node name="Walls40" parent="Walls" instance=ExtResource("3_yuc5i")]
 position = Vector2(416, 64)
 
-[node name="player1" parent="." instance=ExtResource("3_18dr2")]
+[node name="Generators" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(256, 464)
 
-[node name="EnemyGenerator" parent="." instance=ExtResource("5_auxh2")]
+[node name="EnemyGenerator" parent="Generators" instance=ExtResource("5_auxh2")]
 position = Vector2(96, 16)
 
-[node name="EnemyGenerator2" parent="." instance=ExtResource("5_auxh2")]
+[node name="EnemyGenerator2" parent="Generators" instance=ExtResource("5_auxh2")]
 position = Vector2(320, 16)
 
-[node name="EnemyGenerator3" parent="." instance=ExtResource("5_auxh2")]
+[node name="EnemyGenerator3" parent="Generators" instance=ExtResource("5_auxh2")]
 position = Vector2(544, 16)
 
-[node name="EnemyGenerator4" parent="." instance=ExtResource("5_auxh2")]
+[node name="EnemyGenerator4" parent="Generators" instance=ExtResource("5_auxh2")]
 position = Vector2(96, 192)
 
-[node name="EnemyGenerator5" parent="." instance=ExtResource("5_auxh2")]
+[node name="EnemyGenerator5" parent="Generators" instance=ExtResource("5_auxh2")]
 position = Vector2(544, 192)
+
+[node name="PlayerGenerator" parent="Generators" instance=ExtResource("5_c63iw")]
+position = Vector2(256, 464)
+metadata/player_id = "1"

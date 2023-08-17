@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://784fsqh8ki5s"]
+[gd_scene load_steps=2 format=3 uid="uid://dux05k6gtf2a5"]
 
-[ext_resource type="Script" path="res://res/enemy-generator.gd" id="1_k04ca"]
+[ext_resource type="Script" path="res://res/enemy_generator.gd" id="1_nv2mu"]
 
 [node name="EnemyGenerator" type="Node2D"]
-script = ExtResource("1_k04ca")
+script = ExtResource("1_nv2mu")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

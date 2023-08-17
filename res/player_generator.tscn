@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhalsqhi7t7of"]
+
+[ext_resource type="Script" path="res://res/player_generator.gd" id="1_lcb6j"]
+
+[node name="PlayerGenerator" type="Node2D"]
+script = ExtResource("1_lcb6j")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
