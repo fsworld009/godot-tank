@@ -7,6 +7,7 @@ var bullet_count = 0
 var direction = Vector2.UP
 
 signal on_collision
+signal bullet_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,10 +52,11 @@ func set_max_bullet(max):
 
 func shot(shot_type: BulletScript.BulletSource):
 	if bullet_count < max_bullet:
+		var root = get_tree().get_root()
 		var bullet = Bullet.instantiate()
 		bullet.init_bullet(direction, shot_type)
-		bullet.position.x = position.x
-		bullet.position.y = position.y
+		bullet.position = global_position
+		# bullet.position.y = position.y
 		match direction:
 			Vector2.UP:
 				bullet.position.y -= 24
@@ -65,5 +67,6 @@ func shot(shot_type: BulletScript.BulletSource):
 			Vector2.LEFT:
 				bullet.position.x -= 24
 		bullet.connect("disappear", _on_bullet_disappear)
-		get_parent().add_child(bullet)
+		bullet.z_index = 1
+		root.add_child(bullet)
 		bullet_count += 1

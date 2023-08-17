@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://784fsqh8ki5s"]
+
+[ext_resource type="Script" path="res://res/enemy-generator.gd" id="1_k04ca"]
+
+[node name="EnemyGenerator" type="Node2D"]
+script = ExtResource("1_k04ca")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

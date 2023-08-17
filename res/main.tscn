@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://4g2enh1mfur1"]
+[gd_scene load_steps=6 format=3 uid="uid://4g2enh1mfur1"]
 
 [ext_resource type="TileSet" uid="uid://hriauv5vg4tj" path="res://res/tileset.tres" id="1_jrvyx"]
+[ext_resource type="Script" path="res://res/game.gd" id="1_x7fsu"]
 [ext_resource type="PackedScene" uid="uid://cr1q3bgpyccmi" path="res://res/player1.tscn" id="3_18dr2"]
 [ext_resource type="PackedScene" uid="uid://ctxqhuwwbh56" path="res://res/walls.tscn" id="3_yuc5i"]
-[ext_resource type="PackedScene" uid="uid://b5jvudoysnnce" path="res://res/enemy.tscn" id="4_d7v5p"]
+[ext_resource type="PackedScene" uid="uid://784fsqh8ki5s" path="res://res/EnemyGenerator.tscn" id="5_auxh2"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
+script = ExtResource("1_x7fsu")
 
 [node name="TileMap_Upper" type="TileMap" parent="."]
 z_as_relative = false
@@ -156,14 +158,17 @@ position = Vector2(416, 64)
 z_index = 1
 position = Vector2(256, 464)
 
-[node name="enemy" parent="." instance=ExtResource("4_d7v5p")]
-position = Vector2(432, 416)
+[node name="EnemyGenerator" parent="." instance=ExtResource("5_auxh2")]
+position = Vector2(96, 16)
 
-[node name="enemy2" parent="." instance=ExtResource("4_d7v5p")]
-position = Vector2(384, 416)
+[node name="EnemyGenerator2" parent="." instance=ExtResource("5_auxh2")]
+position = Vector2(320, 16)
 
-[node name="enemy3" parent="." instance=ExtResource("4_d7v5p")]
-position = Vector2(352, 392)
+[node name="EnemyGenerator3" parent="." instance=ExtResource("5_auxh2")]
+position = Vector2(544, 16)
 
-[node name="enemy4" parent="." instance=ExtResource("4_d7v5p")]
-position = Vector2(416, 464)
+[node name="EnemyGenerator4" parent="." instance=ExtResource("5_auxh2")]
+position = Vector2(96, 192)
+
+[node name="EnemyGenerator5" parent="." instance=ExtResource("5_auxh2")]
+position = Vector2(544, 192)

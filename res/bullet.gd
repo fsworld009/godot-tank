@@ -21,7 +21,6 @@ func _physics_process(delta):
 	
 	if collision:
 		var obj = collision.get_collider()
-		print(obj)
 		obj.emit_signal("bullet_hit", source)		
 		emit_signal("disappear")
 		queue_free()

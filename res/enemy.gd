@@ -3,6 +3,8 @@ extends Node2D
 const Tank = preload("res://res/tank.gd")
 const BulletScript = preload("res://res/bullet.gd")
 
+signal is_dead
+
 var tank: Tank
 var wait_timer: Timer
 var move_timer: Timer
@@ -23,18 +25,11 @@ func _ready():
 	set_shot_timer()
 
 func _on_wait_timer_timeout():
-	print("wait timeout")
 	turn()
 	set_move_timer()
 
 func _on_move_timer_timeout():
-	print("move timeout")
 	set_wait_timer()
-
-func _process(delta):
-	pass
-#	if Input.is_action_just_pressed("P1_SHOOT"):
-#		tank.shot()
 
 func turn():
 	var rand_direction = rng.randi_range(0, 3)
@@ -95,3 +90,9 @@ func _on_on_collision_timer_timeout():
 func _on_shot_timer_timeout():
 	tank.shot(BulletScript.BulletSource.ENEMY)
 	set_shot_timer()
+
+
+func _on_tank_bullet_hit(source: BulletScript.BulletSource):
+	if source == BulletScript.BulletSource.PLAYER:
+		emit_signal("is_dead")
+		queue_free()
