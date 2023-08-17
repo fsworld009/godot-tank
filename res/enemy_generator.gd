@@ -9,7 +9,6 @@ signal no_more_enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(get_children())
 	gen_enemy()
 
 func gen_enemy():

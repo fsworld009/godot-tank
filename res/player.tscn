@@ -8,4 +8,13 @@ script = ExtResource("1_rof6d")
 
 [node name="Tank" parent="." instance=ExtResource("2_4xv3u")]
 
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="RotateTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="bullet_hit" from="Tank" to="." method="_on_tank_bullet_hit"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="RotateTimer" to="." method="_on_rotate_timer_timeout"]

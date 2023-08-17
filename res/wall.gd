@@ -7,5 +7,4 @@ func _ready():
 	set_meta('wall', 'true')
 
 func _on_bullet_hit(source):
-	print('_on_bullet_hit is called', source)
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4g2enh1mfur1"]
+[gd_scene load_steps=9 format=3 uid="uid://4g2enh1mfur1"]
 
 [ext_resource type="Script" path="res://res/game.gd" id="1_17h8r"]
 [ext_resource type="TileSet" uid="uid://hriauv5vg4tj" path="res://res/tileset.tres" id="1_jrvyx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhalsqhi7t7of" path="res://res/player_generator.tscn" id="5_c63iw"]
 [ext_resource type="Texture2D" uid="uid://dtwjto2k7e80" path="res://res/t_player1.png" id="5_mli3k"]
 [ext_resource type="Texture2D" uid="uid://dkwy7j8n3mnij" path="res://res/t_enemy.png" id="6_38hnw"]
+[ext_resource type="Texture2D" uid="uid://dfxvmweemqgf3" path="res://res/t_player2.png" id="7_yawby"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_17h8r")
@@ -215,9 +216,25 @@ offset_right = 579.0
 offset_bottom = 479.0
 text = "0"
 
+[node name="Sprite2D3" type="Sprite2D" parent="UI"]
+position = Vector2(384, 464)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_yawby")
+
+[node name="P2LiveLabel" type="Label" parent="UI"]
+offset_left = 399.0
+offset_top = 452.0
+offset_right = 439.0
+offset_bottom = 478.0
+text = "0"
+
 [node name="PlayerGenerators" type="Node2D" parent="."]
 z_index = 1
 
 [node name="Player1Generator" parent="PlayerGenerators" instance=ExtResource("5_c63iw")]
 position = Vector2(256, 432)
 metadata/player_id = "1"
+
+[node name="Player2Generator" parent="PlayerGenerators" instance=ExtResource("5_c63iw")]
+position = Vector2(384, 432)
+metadata/player_id = "2"

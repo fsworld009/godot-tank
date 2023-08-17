@@ -13,21 +13,18 @@ func _ready():
 
 func gen_player():
 	var player = Player.instantiate()
-	player.init_player("1")
+	player.init_player(get_meta("player_id"))
 	player.connect("is_dead", _on_player_is_dead)
-	print(player, player.id)
 	add_child(player)
 
 
 func _on_player_is_dead():
 	lives -= 1
 	if lives > 0:
-		print("start timer")
 		$Timer.start()
 	else:
 		# emit player 1 gameover
 		pass
 
 func _on_timer_timeout():
-	print("timer gen player")
 	gen_player()
