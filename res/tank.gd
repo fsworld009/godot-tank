@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 const Bullet = preload("res://res/bullet.tscn")
-const BulletScript = preload("res://res/bullet.gd")
 
 var bullet_count = 0
 var direction = Vector2.UP
@@ -50,11 +49,11 @@ func set_sprite(sprite: String):
 func set_max_bullet(max):
 	max_bullet = max
 
-func shot(shot_type: BulletScript.BulletSource):
+func shot(tank_id: String):
 	if bullet_count < max_bullet:
 		var root = get_tree().get_root()
 		var bullet = Bullet.instantiate()
-		bullet.init_bullet(direction, shot_type)
+		bullet.init_bullet(direction, tank_id)
 		bullet.position = global_position
 		# bullet.position.y = position.y
 		match direction:

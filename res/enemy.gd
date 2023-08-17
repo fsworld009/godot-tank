@@ -11,6 +11,7 @@ var move_timer: Timer
 var oncollision_timer: Timer
 var shot_timer: Timer
 var rng = RandomNumberGenerator.new()
+var tank_id = "3"
 
 func _ready():
 	tank = get_node("Tank")
@@ -88,11 +89,11 @@ func _on_on_collision_timer_timeout():
 
 
 func _on_shot_timer_timeout():
-	tank.shot(BulletScript.BulletSource.ENEMY)
+	tank.shot(tank_id)
 	set_shot_timer()
 
 
-func _on_tank_bullet_hit(source: BulletScript.BulletSource):
-	if source == BulletScript.BulletSource.PLAYER:
+func _on_tank_bullet_hit(tank_id):
+	if tank_id != self.tank_id:
 		emit_signal("is_dead")
 		queue_free()

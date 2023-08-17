@@ -2,17 +2,12 @@ extends CharacterBody2D
 
 signal disappear
 
-enum BulletSource {
-	PLAYER,
-	ENEMY
-}
-
-var source: BulletSource
+var tank_id: String
 var direction: Vector2
 
-func init_bullet(direction: Vector2, source: BulletSource):
+func init_bullet(direction: Vector2, tank_id: String):
 	self.direction = direction
-	self.source = source
+	self.tank_id = tank_id	# 1: Player1, 2: Player2, 3: Enemy
 
 func _physics_process(delta):
 	var pos = Vector2()
@@ -21,6 +16,6 @@ func _physics_process(delta):
 	
 	if collision:
 		var obj = collision.get_collider()
-		obj.emit_signal("bullet_hit", source)		
+		obj.emit_signal("bullet_hit", tank_id)		
 		emit_signal("disappear")
 		queue_free()

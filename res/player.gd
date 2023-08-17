@@ -1,7 +1,6 @@
 extends Node2D
 
 const Tank = preload("res://res/tank.gd")
-const BulletScript = preload("res://res/bullet.gd")
 
 signal is_dead
 
@@ -21,7 +20,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("P{id}_SHOOT".format({"id": id})):
-		tank.shot(BulletScript.BulletSource.PLAYER)
+		tank.shot(id)
 
 func _physics_process(delta):
 	var speed = 80.0
@@ -42,8 +41,8 @@ func _physics_process(delta):
 	if move:
 		tank.move(delta)
 
-func _on_tank_bullet_hit(source: BulletScript.BulletSource):
-	if source == BulletScript.BulletSource.ENEMY:
+func _on_tank_bullet_hit(tank_id):
+	if tank_id == "3":
 		emit_signal("is_dead")
 		queue_free()
 	else:
