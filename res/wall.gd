@@ -4,6 +4,7 @@ signal bullet_hit
 
 func _ready():
 	connect("bullet_hit", self._on_bullet_hit)
+	set_meta('wall', 'true')
 
 func _on_bullet_hit(source):
 	print('_on_bullet_hit is called', source)

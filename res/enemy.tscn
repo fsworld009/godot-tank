@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5jvudoysnnce"]
+
+[ext_resource type="Script" path="res://res/enemy.gd" id="1_2rr5t"]
+[ext_resource type="PackedScene" uid="uid://bkt6cooa8f80r" path="res://res/tank.tscn" id="1_pkc0u"]
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_2rr5t")
+
+[node name="Tank" parent="." instance=ExtResource("1_pkc0u")]
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MoveTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="OnCollisionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="on_collision" from="Tank" to="." method="_on_tank_on_collision"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="OnCollisionTimer" to="." method="_on_on_collision_timer_timeout"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkt6cooa8f80r"]
+
+[ext_resource type="Script" path="res://res/tank.gd" id="1_7ojov"]
+[ext_resource type="Texture2D" uid="uid://dkwy7j8n3mnij" path="res://res/t_enemy.png" id="2_es6f4"]
+
+[node name="Tank" type="CharacterBody2D"]
+collision_mask = 15
+script = ExtResource("1_7ojov")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(-12, -8, 12, -8, 12, 16, -12, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("2_es6f4")
