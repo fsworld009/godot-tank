@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx46pmhfo7ypc"]
+
+[ext_resource type="Texture2D" uid="uid://dwm803jvdgxke" path="res://res/wall.png" id="1_qtrvt"]
+[ext_resource type="Script" path="res://res/wall.gd" id="1_ynaff"]
+
+[node name="Wall" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_ynaff")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("1_qtrvt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(8, 8)
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
