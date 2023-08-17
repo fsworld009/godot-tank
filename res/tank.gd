@@ -51,7 +51,7 @@ func set_max_bullet(max):
 
 func shot(tank_id: String):
 	if bullet_count < max_bullet:
-		var root = get_tree().get_root()
+		var root = get_tree().get_current_scene()
 		var bullet = Bullet.instantiate()
 		bullet.init_bullet(direction, tank_id)
 		bullet.position = global_position
